@@ -55,6 +55,24 @@ def merge(left, right):
     l.append(right[j])
     j+=1
 
+  return l 
+
+
+alist = [60,10,30,2,90]
+l = merge_sort(alist)
+
+def verify_sorted(list):
+  n = len(list)
+
+  if n == 0 or n == 1:
+    return True
+
+  return list[0] < list[1] and verify_sorted(list[1:])
+
+print(verify_sorted(alist))
+print(verify_sorted(l))
+
+
   
   
   
