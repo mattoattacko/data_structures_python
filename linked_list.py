@@ -117,6 +117,23 @@ class LinkedList:
         current = current.next_node
         
     return current
+
+  def node_at_index(self, index):
+    """
+    We need a convenience method that returns a node at a given index
+    This is for our split() function in ll_merge_sort
+    """
+    if index == 0:
+      return self.head
+    else:
+      current = self.head
+      position = 0
+
+      while position < index:
+        current = current.next_node
+        position += 1
+
+      return current
       
   def __repr__(self):
     """
