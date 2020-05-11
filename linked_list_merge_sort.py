@@ -44,4 +44,61 @@ def merge_sort(linked_list):
       return left_half, right_half
   
   
-  
+def merge(left, right):
+  """
+  Merges two linked lists, sorting by data in the nodes
+  Returns a new, merged list
+  """
+
+  # Create a new linked list that contains nodes from 
+  # merging left and Right
+  merged = LinkedList()
+
+  # Add a fake head that is discarded later
+  merged.add(0)
+
+  # Set current to the head of the linked list
+  current = merged.head
+
+  #Obtain head nodes for left and Right linked lists
+  left_head = left.head
+  right_head = right.head
+
+  # Iterates over left and Right until we reach the tail
+  # node of either
+  while left_head or right_head:
+    # If the head node of Left is None, we are past the tail
+    # Add the node from Right to merged linked list
+    if left_head is None:
+      current.next_node = right_head
+      # Call next on Right to set loop condition to false
+      right_head = right_head.next_node
+    # If the head node of Right is None, we are past the tail
+    # Add the tail node from Left to merged linked list
+    elif right_head is None:
+      current.next_node = left_head
+      # Call next on Left to set loop condition to False
+      left_head = left_head.next_node
+    else:
+      # Not at either tail node
+      # Obtain node data to perform comparison operations
+      left_data = left_head.data
+      right_data = right_head.data
+      # If data on Left is less than Right, set current to Left node
+      if left_data < right_data:
+        current.next_node = left_head
+        # Move Left head to next node
+        left_head = left_head.next_node
+      # If data on Left is greater than Right, set current to Right node
+      else:
+        current.next_node = right_head
+        # Move Right head to next node
+        right_head = right_head.next_node
+  # Move current to next node
+  current = current.next_node 
+
+  # Discard fake head and set first merged node as head
+  head = merged.head.next_node 
+  merged.head = head
+
+  return merged
