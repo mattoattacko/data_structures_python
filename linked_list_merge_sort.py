@@ -102,3 +102,15 @@ def merge(left, right):
   merged.head = head
 
   return merged
+
+l = LinkedList()
+l.add(10)
+l.add(5)
+l.add(45)
+l.add(80)
+l.add(45)
+l.add(100)
+
+print(l)
+sorted_linked_list = merge_sort(l)
+print(sorted_linked_list)
