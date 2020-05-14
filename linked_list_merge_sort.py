@@ -111,7 +111,7 @@ l.add(10)
 l.add(5)
 l.add(45)
 l.add(80)
-l.add(45)
+l.add(46)
 l.add(100)
 
 print(l)
